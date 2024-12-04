@@ -1,0 +1,13 @@
+ip Address,Request Count
+203.0.113.5,8
+198.51.100.23,8
+192.168.1.1,7
+10.0.0.2,6
+192.168.1.100,5
+
+Most Frequently Accessed Endpoints
+Endpoint,Access Count
+/login,13
+
+Suspicious Activity Detected
+"Threshold set to default 10 logs. So, no suspicious activity detected more than 10 with same ip."
