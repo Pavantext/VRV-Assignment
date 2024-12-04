@@ -44,12 +44,17 @@ def save_to_csv(ip_requests, most_accessed_endpoint, suspicious_ips, file_name='
         if most_accessed_endpoint:
             writer.writerow(['Endpoint', 'Access Count'])
             writer.writerow(most_accessed_endpoint)
+        else:
+            writer.writerow(['No endpoints found.'])
 
         writer.writerow([])
         writer.writerow(['Suspicious Activity Detected'])
-        writer.writerow(['Ip Address', 'Failed Login Count'])
-        if suspicious_ips:    
-            writer.writerows(suspicious_ips.items())
+        if suspicious_ips:
+            writer.writerow(['Ip Address', 'Failed Login Count'])
+            for ip, count in suspicious_ips.items():
+                writer.writerow([ip, count])
+        else:   
+            writer.writerow(['Threshold set to default 10 logs. So, no suspicious activity detected more than 10 with same ip.'])
 
 
 if __name__ == "__main__":
@@ -72,9 +77,12 @@ if __name__ == "__main__":
 
 
     suspicious_ips = detect_suspicious_activity(log_entries)
-    print("\nSuspicious Activity Detected:")
-    for ip, count in suspicious_ips.items():
-        print(f"{ip}: {count} failed login attempts")
+    if not suspicious_ips:
+        print("\nThreshold set to default 10 logs. So, no suspicious activity detected more than 10 with same ip address.")
+    else:
+        print("\nSuspicious Activity Detected:")
+        for ip, count in suspicious_ips.items():
+            print(f"{ip}: {count} failed login attempts")
 
 
     save_to_csv(ip_requests, most_accessed_endpoint, suspicious_ips)
