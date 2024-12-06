@@ -2,6 +2,14 @@
 
 This Python project analyzes server log files to extract and analyze key information. The script performs essential log processing tasks like counting requests per IP, identifying frequently accessed endpoints, and detecting suspicious activities.
 
+## Dependencies
+- `Python 3.7 or higher`
+  
+## Libraries:
+- `pandas (for version 2)`
+- `re`
+- `csv`
+- 
 ## Features
 
 1. **Count Requests per IP Address**  
@@ -29,5 +37,29 @@ This Python project analyzes server log files to extract and analyze key informa
 1. Clone the repository:  
    ```bash
    git clone https://github.com/Pavantext/VRV-Assignment.git
-   cd log-analysis
-  
+2. Create and activate a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/MacOS
+   venv\Scripts\activate     # Windows
+3. Install the required dependencies for version (1.1):
+```bash
+   pip install -r requirements(V1.1).txt
+```
+
+# Usage
+### Add your log file (e.g., sample.log) to the project directory.
+### Run the script For version(1.0):
+```bash
+python log_analysis(1.0).py
+```
+### Run the script for version(1.1):
+```bash
+python log_analysis(1.1).py
+```
+### View the results:
+### Terminal output will display the analysis.
+Results will also be saved to log_analysis_results.csv, (v1.0), (v1.1) respectively.
+
+
+
